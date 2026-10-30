@@ -29,8 +29,7 @@
     var(--ft-stage);
 }
 header[data-testid="stHeader"] { background: rgba(10,10,13,.92); border-bottom: 2px solid #000; }
-[data-testid="stDecoration"], [data-testid="stStatusWidget"], [data-testid="stAppDeployButton"],
-[data-testid="stMainMenu"], footer { display: none !important; }
+[data-testid="stDecoration"], [data-testid="stStatusWidget"], footer { display: none !important; }
 /* No stale dimming on reruns. */
 [data-stale="true"], .stale-element { opacity: 1 !important; transition: none !important; }
 .block-container, [data-testid="stMainBlockContainer"] { padding-top: var(--ft-top) !important; padding-bottom: .5rem !important; max-width: 100% !important; }
