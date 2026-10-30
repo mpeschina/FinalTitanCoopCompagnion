@@ -33,4 +33,4 @@ weight = 400
 enableStaticServing = true
 
 [client]
-toolbarMode = "auto"
+toolbarMode = "minimal"
