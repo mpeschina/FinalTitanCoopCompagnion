@@ -167,6 +167,17 @@ def test_poison_and_fire_tick():
     assert st.arena.life == st.arena.max_life - 3 and st.arena.statuses.fire == 2
 
 
+def test_expert_guide_omits_champion_fight_start_text():
+    state = run(make_setup())
+    expert = guide(state, GuidanceSettings(level="Expert"))
+    assert expert.step == "fight_start_champion"
+    assert expert.lines == []
+
+    beginner = guide(state, GuidanceSettings(level="Beginner"))
+    assert any("is the enemy Champion" in line for line in beginner.lines)
+    assert beginner.primary == expert.primary
+
+
 def test_expert_guide_omits_redundant_enemy_turn_start_text():
     state = run(make_setup(), act(ev.SET_STARTER, side="enemy"))
     expert = guide(state, GuidanceSettings(level="Expert"))

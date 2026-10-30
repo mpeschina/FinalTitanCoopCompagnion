@@ -14,7 +14,7 @@ steps:
     refs: [["Co-op: Game Setup", "design/final-titan-coop-rules.md"]]
   fight_start_champion:
     actor: players
-    short: "{enemy} is the enemy Champion. Send a Challenger, play Upgrades, then pick who starts."
+    short: ""
     lines:
       - "{enemy} is the enemy Champion. Decide together which player sends a Titan from their bench as Challenger."
       - "All players may play Upgrade cards face down for that Titan, then reveal them together."

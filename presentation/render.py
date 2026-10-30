@@ -21,7 +21,7 @@ from finaltitan.state import EnemyTitan, GameState
 
 ROOT = Path(__file__).resolve().parent.parent
 STATIC = ROOT / "static"
-URL = "/app/static"
+URL = "app/static"
 TEMPLATES = Path(__file__).resolve().parent / "templates"
 SIZES = {"full": 760, "thumb": 300}
 KINDS = ("titans", "upgrades")

@@ -25,7 +25,7 @@ def titan(**kw) -> EnemyTitan:
 def test_card_html_escapes_names_and_serves_static_webp():
     html = render.card_html(evil_catalog(), "titans", TID)
     assert "<script>" not in html and "&lt;script&gt;" in html
-    assert f'src="/app/static/cards/titans/{TID}.webp"' in html
+    assert f'src="app/static/cards/titans/{TID}.webp"' in html
     assert (render.STATIC / f"cards/titans/{TID}.webp").exists()
     assert "\n" not in html
 

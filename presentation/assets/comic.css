@@ -15,10 +15,10 @@
   --ft-stage-h: calc(var(--ft-screen-h) - var(--ft-hud-h) - var(--ft-ticker-h) - 3 * var(--ft-gap));
 }
 
-@font-face { font-family: 'Bangers'; src: url('/app/static/fonts/Bangers.ttf') format('truetype'); font-display: swap; }
-@font-face { font-family: 'Luckiest Guy'; src: url('/app/static/fonts/LuckiestGuy.ttf') format('truetype'); font-display: swap; }
-@font-face { font-family: 'Comic Neue'; src: url('/app/static/fonts/ComicNeue-Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
-@font-face { font-family: 'Comic Neue'; src: url('/app/static/fonts/ComicNeue-Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Bangers'; src: url('app/static/fonts/Bangers.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Luckiest Guy'; src: url('app/static/fonts/LuckiestGuy.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Comic Neue'; src: url('app/static/fonts/ComicNeue-Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Comic Neue'; src: url('app/static/fonts/ComicNeue-Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
 
 /* ===================================================== Streamlit internals
    Tested with Streamlit 1.60.0. All data-testid selectors the theme relies on are in this section. */
