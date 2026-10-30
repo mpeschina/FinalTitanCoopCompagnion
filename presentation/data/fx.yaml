@@ -39,7 +39,7 @@ durations:          # milliseconds at 1x speed
   charge_on: 900
   charge_off: 500
   ultimate_form: 900
-  turn_banner: 1100
+  turn_banner: 1000
   move: 750
   reveal_upgrade: 900
   reveal_bench: 800

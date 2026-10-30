@@ -29,6 +29,9 @@
     var(--ft-stage);
 }
 header[data-testid="stHeader"] { background: rgba(10,10,13,.92); border-bottom: 2px solid #000; }
+/* The fight screen has its own menu with the page links, so the top bar is hidden there. */
+.stApp:has(.st-key-ft_hud) header[data-testid="stHeader"] { display: none !important; }
+:root:has(.st-key-ft_hud) { --ft-top: .75rem; }
 [data-testid="stDecoration"], [data-testid="stStatusWidget"], footer { display: none !important; }
 /* No stale dimming on reruns. */
 [data-stale="true"], .stale-element { opacity: 1 !important; transition: none !important; }
@@ -76,8 +79,8 @@ div[class*="st-key-card_"] div[data-testid="stElementContainer"]:has(.ft-taken-a
 .ft-taken-arrow { position: absolute; left: 50%; top: 50%; width: 34%; max-width: 110px; transform: translate(-50%, -50%) rotate(-6deg); }
 .ft-taken-arrow svg { display: block; width: 100%; height: auto; overflow: visible; }
 .st-key-draft_header { min-height: 2.5rem; }
-.st-key-draft_slots [data-testid="stImage"] img { aspect-ratio: 5 / 4; object-fit: contain; }
-.ft-draft-empty { box-sizing: border-box; width: 100%; aspect-ratio: 5 / 4; border: 2px dashed var(--ft-line); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--ft-dim); background: var(--ft-panel); font-size: .875rem; }
+.st-key-draft_slots [data-testid="stImage"] img { aspect-ratio: 25 / 16; object-fit: contain; }
+.ft-draft-empty { box-sizing: border-box; width: 100%; aspect-ratio: 25 / 16; border: 2px dashed var(--ft-line); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--ft-dim); background: var(--ft-panel); font-size: .875rem; }
 
 /* ===================================================== fight screen grid (§4.4) */
 .st-key-ft_screen {

@@ -279,6 +279,22 @@ def test_fight_menu_changes_guidance_live_without_changing_game():
     assert len(at.session_state["events"]) == event_count
 
 
+def test_fight_menu_fx_settings_are_kept_in_session():
+    def pre(at):
+        prepared(at)
+        at.session_state["opt_level"] = "Expert"
+
+    at = run_page("arena_page", pre)
+    _click(at, "primary_setup_0")
+    next(item for item in at.selectbox if item.label == "FX intensity").select("Low").run()
+    assert not at.exception, at.exception
+    assert at.session_state["fx_intensity"] == "Low"
+    next(item for item in at.toggle if item.label == "Sound").set_value(True).run()
+    assert at.session_state["fx_sound"] is True
+    assert next(item for item in at.selectbox if item.label == "FX intensity").value == "Low"
+    assert not next(item for item in at.slider if item.label == "Volume").disabled
+
+
 def test_expert_setup_keeps_existing_start_button():
     def pre(at):
         prepared(at)

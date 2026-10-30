@@ -54,7 +54,7 @@ def fx_settings() -> fx.FxSettings:
         speed=float(ss.get("fx_speed", d.speed)), sound=bool(ss.get("fx_sound", d.sound)),
         volume=float(ss.get("fx_volume", d.volume)), taunts=bool(ss.get("fx_taunts", d.taunts)),
         ko_style=ss.get("fx_ko_style", d.ko_style), idle=bool(ss.get("fx_idle", d.idle)),
-        reduced_motion=ss.get("fx_reduced", d.reduced_motion),
+        reduced_motion=ss.get("fx_reduced_motion", d.reduced_motion),
     )
 
 

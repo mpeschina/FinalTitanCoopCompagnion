@@ -8,6 +8,7 @@ import streamlit as st
 from finaltitan import events as ev
 from finaltitan.guide import LEVELS, Guidance, guide
 from finaltitan.state import COUNT_TOKENS, GameState
+from presentation import fx
 from presentation import render as view
 from presentation.fx_layer import fx_layer
 from presentation.render import esc
@@ -57,6 +58,28 @@ def _maybe_reveal(state: GameState, cinematics: bool) -> None:
 
 # ----------------------------------------------------------------------- HUD
 
+def _fx_widget(widget, label: str, name: str, *args, **kw):
+    """A menu widget for an FX setting. Its value lives in a plain session key, so it survives the pages
+    where the menu is not rendered."""
+    ss = st.session_state
+    key = f"_{name}"
+    ss[key] = getattr(session.fx_settings(), name)
+    return widget(label, *args, key=key, on_change=lambda: ss.update({f"fx_{name}": ss[key]}), **kw)
+
+
+def _fx_menu() -> None:
+    _fx_widget(st.selectbox, "FX intensity", "intensity", fx.INTENSITIES, help="Low: no particles and no shake.")
+    _fx_widget(st.selectbox, "Cinematics", "cinematics", fx.CINEMATICS)
+    _fx_widget(st.select_slider, "Animation speed", "speed", fx.SPEEDS, format_func=lambda v: f"{v:g}×")
+    sound = _fx_widget(st.toggle, "Sound", "sound")
+    _fx_widget(st.slider, "Volume", "volume", 0.0, 1.0, step=0.05, disabled=not sound)
+    _fx_widget(st.toggle, "Enemy taunts", "taunts")
+    _fx_widget(st.selectbox, "K.O. style", "ko_style", fx.KO_STYLE_OPTIONS)
+    _fx_widget(st.toggle, "Idle motion and mouse tilt", "idle")
+    _fx_widget(st.selectbox, "Reduced motion", "reduced_motion", fx.REDUCED_MOTION,
+               help="System follows the operating system setting.")
+
+
 def _hud(state: GameState) -> None:
     _md(view.hud_players_html(state))
     st.button("↶ Undo", on_click=session.undo, disabled=not st.session_state.events, key="undo_top")
@@ -65,8 +88,12 @@ def _hud(state: GameState) -> None:
         ss._fight_guidance = session.settings().level
         st.selectbox("Guidance level", LEVELS, key="_fight_guidance",
                      on_change=lambda: ss.update(opt_level=ss._fight_guidance, beginner_progress=None))
-        st.button("📜 Battle log and save", key="menu_log", on_click=session.go, args=("log",), width="stretch")
         st.button("⚙ Setup", key="menu_setup", on_click=session.go, args=("setup",), width="stretch")
+        st.button("🃏 Draft", key="menu_draft", on_click=session.go, args=("draft",), width="stretch")
+        st.button("📜 Battle log and save", key="menu_log", on_click=session.go, args=("log",), width="stretch")
+        st.button("🗂 Catalog editor", key="menu_catalog", on_click=session.go, args=("catalog",), width="stretch")
+        with st.expander("✨ Effects"):
+            _fx_menu()
         st.button("New game", key="menu_new", on_click=session.new_game, width="stretch")
     _md(view.hud_center_html(state))
     _md(view.hud_enemy_html(state))

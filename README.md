@@ -14,7 +14,7 @@ The app is an enemy display: one shared screen at the table shows the current en
 - **Undo** for every change. The engine is an event-sourced pure reducer.
 - **Save and load** the game as a JSON file, plus a full game log.
 - **Catalog editor** to check and edit card metadata next to each card image.
-- **Comic fighting-game presentation**: a themed HUD with animated reveals, cinematics, optional sound and enemy taunts. All of it can be adjusted in the sidebar, including a reduced-motion mode.
+- **Comic fighting-game presentation**: a themed HUD with animated reveals, cinematics, optional sound and enemy taunts. All of it can be adjusted in the fight screen menu, including a reduced-motion mode.
 
 The app never reads or applies card text. Players read the card images and enter the results with the controls.
 
@@ -49,7 +49,7 @@ Streamlit opens the app in your browser, by default at http://localhost:8501. It
    - When the fight ends, the app runs the clean-up and reveals the next Upgrade.
 4. **Log and save**: review the log, or save and load the game.
 
-The sidebar holds the effect settings (FX intensity, cinematics, animation speed, sound, taunts, K.O. style, reduced motion) and a **New game** button.
+During a fight, the top bar is replaced by the **☰ Menu**: guidance level, links to the other pages, the effect settings (FX intensity, cinematics, animation speed, sound, taunts, K.O. style, reduced motion) and a **New game** button.
 
 ## Running the tests
 
@@ -89,7 +89,7 @@ Challenge presets (fixed enemy decks per player count) are defined in [data/pres
 ## Project structure
 
 ```
-app.py                  # entry point: page navigation and sidebar settings
+app.py                  # entry point: page navigation
 finaltitan/             # rules engine, no UI code
   state.py              #   game state dataclasses (enemy side only)
   events.py             #   action types

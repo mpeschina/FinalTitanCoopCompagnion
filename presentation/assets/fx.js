@@ -582,9 +582,12 @@ HANDLERS.turn_banner = async (c) => {
   const side = c.params.side === 'enemy' ? 'enemy' : 'players';
   const b = div('ft-fx-banner ' + side, side === 'enemy' ? 'ENEMY TURN' : 'YOUR TURN');
   sfx('whoosh');
-  await anim(b, [{ transform: 'skewY(-6deg) translateX(-110%)' }, { transform: 'skewY(-6deg) translateX(0)', offset: 0.25 },
-    { transform: 'skewY(-6deg) translateX(0)', offset: 0.75 }, { transform: 'skewY(-6deg) translateX(110%)' }],
-  { duration: 1100, easing: 'cubic-bezier(.6,0,.4,1)' });
+  // Fast swish in that brakes hard, slow drift while readable, then a fast exit.
+  await anim(b, [{ transform: 'skewY(-6deg) translateX(-110%)', easing: 'cubic-bezier(.15,.9,.3,1)' },
+    { transform: 'skewY(-6deg) translateX(-3%)', offset: 0.25, easing: 'linear' },
+    { transform: 'skewY(-6deg) translateX(3%)', offset: 0.75, easing: 'cubic-bezier(.7,0,.9,.4)' },
+    { transform: 'skewY(-6deg) translateX(110%)' }],
+  { duration: 1000 });
   b.remove();
 };
 
