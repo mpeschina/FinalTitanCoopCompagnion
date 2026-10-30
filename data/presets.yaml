@@ -1,0 +1,13 @@
+# Fixed enemy decks, keyed by player count. Cards are matched by name.
+first_steps:
+  name: "Rulebook Challenge: First Steps"
+  decks:
+    1:
+      titans: [Crimson Knight, Impulse, Final Boss]
+      upgrades: [Dracula's Blood, Power Potion, Berserker's Brew]
+    2:
+      titans: [Crimson Knight, Impulse, Chessmaster, Karate Guy, Final Boss]
+      upgrades: [Dracula's Blood, Power Potion, Hermes's Boon, Shadow Step, Berserker's Brew]
+    3:
+      titans: [Crimson Knight, Impulse, Chessmaster, Karate Guy, Gunslinger, Sobek, Final Boss]
+      upgrades: [Dracula's Blood, Power Potion, Hermes's Boon, Shadow Step, Sharpshooter, Basilisk's Fangs, Berserker's Brew]

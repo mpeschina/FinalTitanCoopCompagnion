@@ -1,0 +1,67 @@
+# Sound-effect words, thresholds, durations, and enemy taunts for the presentation layer.
+words:
+  damage:          # [minimum damage, word], checked top to bottom
+    - [5, "KA-BOOM!"]
+    - [3, "BAM!"]
+    - [1, "POW!"]
+  whiff: "WHIFF!"
+  armor: "CLANG!"
+  dodge: "SWISH!"
+  minion: "NOT TODAY!"
+  poison: "BLURB"
+  fire: "SIZZLE!"
+  charge: "ZZAP!"
+  ultimate: "ULTIMATE!!"
+  poof: "POOF!"
+  ko: "K.O.!"
+  fight: "FIGHT!"
+  retreat: "RETREAT!"
+  slash: "SHING!"
+
+# Damage tier per word: drives shake, knockback, hit-stop, and particles.
+tiers:
+  "POW!": 1
+  "BAM!": 2
+  "KA-BOOM!": 3
+
+durations:          # milliseconds at 1x speed
+  hit: 900
+  whiff: 700
+  armor: 700
+  dodge: 700
+  minion: 800
+  heal: 900
+  tick: 900
+  combo: 1000
+  lunge: 600
+  token: 500
+  poof: 600
+  charge_on: 900
+  charge_off: 500
+  ultimate_form: 900
+  turn_banner: 1100
+  move: 750
+  reveal_upgrade: 900
+  reveal_bench: 800
+  swap: 900
+  title: 2200
+  reveal_arena: 2200
+  vs: 2400
+  ultimate: 2600
+  ko: 2600
+  player_lost: 2200
+  retreat: 1600
+  final_fight: 2000
+  victory: 4000
+  defeat: 4000
+
+# Generic taunts from the enemy team; never card specific.
+taunts:
+  whiff: ["Is that all you've got?", "Missed me!", "Too slow!"]
+  hit_small: ["That tickles.", "Hmph."]
+  dodge: ["Too slow!", "Over here!"]
+  minion: ["Not today!", "My minions have my back."]
+  start_turn: ["My turn!", "Brace yourselves!", "Now you'll see!"]
+  ultimate: ["Behold my true power!", "This ends now!"]
+  player_lost: ["Next!", "Who's next?", "Another one falls!"]
+  fight: ["Let's dance!", "You again?"]

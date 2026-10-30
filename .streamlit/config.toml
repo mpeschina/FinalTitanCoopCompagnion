@@ -1,0 +1,36 @@
+[theme]
+base = "dark"
+primaryColor = "#FFD400"
+backgroundColor = "#0A0A0D"
+secondaryBackgroundColor = "#16161C"
+textColor = "#F2EBDD"
+borderColor = "#3A3A46"
+font = "Comic Neue, Comic Sans MS, sans-serif"
+headingFont = "Bangers, Impact, sans-serif"
+baseRadius = "small"
+
+[[theme.fontFaces]]
+family = "Comic Neue"
+url = "app/static/fonts/ComicNeue-Regular.ttf"
+weight = 400
+
+[[theme.fontFaces]]
+family = "Comic Neue"
+url = "app/static/fonts/ComicNeue-Bold.ttf"
+weight = 700
+
+[[theme.fontFaces]]
+family = "Bangers"
+url = "app/static/fonts/Bangers.ttf"
+weight = 400
+
+[[theme.fontFaces]]
+family = "Luckiest Guy"
+url = "app/static/fonts/LuckiestGuy.ttf"
+weight = 400
+
+[server]
+enableStaticServing = true
+
+[client]
+toolbarMode = "minimal"

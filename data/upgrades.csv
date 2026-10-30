@@ -1,0 +1,36 @@
+id,name,advanced,enemy_usable,legendary,expansion
+adamantSkin,Adamant Skin,false,false,false,Base Set
+bagOfTricks,Bag of Tricks,false,false,false,Base Set
+bagOfTricks2,Bag of Tricks,false,false,false,Base Set
+criticalStrike,Critical Strike,false,true,false,Base Set
+forceField,Force Field,false,true,false,Base Set
+forceField2,Force Field,false,true,false,Base Set
+foresight,Foresight,false,true,false,Base Set
+foresight2,Foresight,false,true,false,Base Set
+gorgonsGaze,Gorgon’s Gaze,false,true,false,Base Set
+gorgonsGaze2,Gorgon’s Gaze,false,true,false,Base Set
+healingFactor,Healing Factor,false,true,false,Base Set
+healingFactor2,Healing Factor,false,true,false,Base Set
+healingFactor3,Healing Factor,false,true,false,Base Set
+healingFactor4,Healing Factor,false,true,false,Base Set
+heavensFavor,Heaven’s Favor,true,true,false,Advanced Set
+hermessBoon,Hermes’s Boon,false,true,false,Base Set
+hermessBoon2,Hermes’s Boon,false,true,false,Base Set
+hex,Hex,false,false,false,Base Set
+hex2,Hex,false,false,false,Base Set
+hex3,Hex,false,false,false,Base Set
+innerFocus,Inner Focus,false,true,false,Base Set
+mirrorImage,Mirror Image,false,false,false,Base Set
+powerCore,Power Core,false,true,false,Base Set
+powerCore2,Power Core,false,true,false,Base Set
+powerPotion,Power Potion,false,true,false,Base Set
+powerPotion2,Power Potion,false,true,false,Base Set
+powerPotion3,Power Potion,false,true,false,Base Set
+powerPotion4,Power Potion,false,true,false,Base Set
+shadowStep,Shadow Step,false,true,false,Base Set
+shadowStep2,Shadow Step,false,true,false,Base Set
+sharpshooter,Sharpshooter,false,true,false,Base Set
+smokeBomb,Smoke Bomb,false,true,false,Base Set
+stoneSkin,Stone Skin,false,true,false,Base Set
+summoningCircle,Summoning Circle,true,true,false,Advanced Set
+witchsMark,Witch’s Mark,true,true,false,Advanced Set

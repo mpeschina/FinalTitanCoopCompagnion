@@ -1,0 +1,101 @@
+id,name,max_life,speed,armor,team_power,advanced,enemy_usable,legendary_id,expansion
+achilles,Achilles,16,10,0,false,false,true,,Base Set
+alekeeper,Alekeeper,9,5,0,false,false,true,,Base Set
+alphaClaus,Alpha Claus,14,3,0,false,false,true,,Base Set
+amelie,Amelie,8,6,0,false,true,true,,Advanced Set
+arachnidora,Arachnidra,11,2,0,false,false,true,,Base Set
+archangel,Archangel,12,8,0,false,true,true,,Advanced Set
+azurian,Azurian,6,6,0,false,true,true,,Advanced Set
+bast,Bast,5,8,0,false,false,true,,Base Set
+beastMaster,Beast Master,8,3,0,false,true,true,,Advanced Set
+bountyHunter,Bounty Hunter,8,8,0,false,false,false,,Base Set
+buzzkill,Buzzkill,5,10,0,false,false,true,,Base Set
+bärhart,Bärhart,14,3,0,false,true,true,,Advanced Set
+cerberus,Cerberus,10,5,0,false,true,true,,Advanced Set
+cheshireCat,Cheshire Cat,8,6,0,false,true,true,,Advanced Set
+chessmaster,Chessmaster,6,2,1,false,false,true,,Base Set
+chuatzKhan,Chuatz’Khan,12,4,0,false,true,true,,Advanced Set
+crimsonKnight,Crimson Knight,8,6,1,false,false,true,,Base Set
+crumblingColossus,Crumbling Colossus,30,0,0,false,false,true,,Base Set
+cthulhu,Cthulhu,10,1,0,false,true,true,,Advanced Set
+cursedPirate,Cursed Pirate,10,1,1,false,true,true,,Advanced Set
+cyanideSam,Cyanide Sam,9,5,0,true,true,true,,Advanced Set
+cyborilla,Cyborilla,9,2,1,false,false,true,,Base Set
+demonDave,Demon Dave,13,7,0,false,false,true,,Base Set
+demonica,Demonica,8,8,0,false,false,true,,Base Set
+draghoul,Draghoul,13,9,0,false,false,true,,Base Set
+dragonbane,Dragonbane,8,6,0,false,true,true,,Advanced Set
+drJekyll,Dr. Jekyll,12,6,0,false,true,true,,Advanced Set
+earthDancer,Earth Dancer,7,8,1,true,true,true,,Advanced Set
+echo,Echo,8,8,0,false,true,true,,Advanced Set
+elderroot,Elderroot,12,1,0,true,true,true,,Advanced Set
+elite,Elite,5,1,0,false,false,true,,Base Set
+eveAndAdam,Eve & Adam,6,5,0,false,true,true,,Advanced Set
+evilDjinn,Evil Djinn,13,5,0,false,false,true,,Base Set
+fafnir,Fafnir,13,4,0,false,true,true,,Advanced Set
+fang,Fang,9,9,0,false,false,true,,Base Set
+finalBoss,Final Boss,8,3,1,false,false,true,,Base Set
+fireDancer,Fire Dancer,7,8,0,true,true,true,,Advanced Set
+genesis1Point0,Genesis 1.0,12,5,0,false,true,true,,Advanced Set
+gladiatrix,Gladiatrix,10,7,0,false,false,true,,Base Set
+greenHand,Green Hand,12,4,0,false,true,true,,Advanced Set
+gunslinger,Gunslinger,8,7,0,false,false,true,,Base Set
+hepharion,Hepharion,7,4,1,false,false,true,,Base Set
+hitsune,Kitsune,6,6,0,false,false,true,,Base Set
+hydra,Hydra,9,1,0,false,false,true,,Base Set
+hänselAndGretel,Hänsel & Gretel,8,7,0,false,false,true,,Base Set
+impulse,Impulse,7,15,0,false,false,true,,Base Set
+invisibleMan,Invisible Man,6,4,0,false,true,true,,Advanced Set
+jadeOgre,Jade Ogre,9,5,0,false,false,true,,Base Set
+karateGuy,Karate Guy,10,8,0,false,false,true,,Base Set
+khuNan,Khu’nan,11,7,0,false,false,true,,Base Set
+leviathan,Leviathan,16,1,0,false,false,true,,Base Set
+littleRedRidingHood,Little Red Riding Hood,7,8,0,false,true,true,,Advanced Set
+lycran,Lycran,9,7,0,false,false,true,,Base Set
+madison,Madison,9,7,0,true,true,true,,Advanced Set
+magnusPain,Magnus Pain,11,8,0,false,false,true,,Base Set
+medicMira,Medic Mira,9,4,0,true,true,true,,Advanced Set
+medusa,Medusa,10,4,0,false,true,true,,Advanced Set
+mindbug,Mindbug,6,9,0,false,true,true,,Advanced Set
+mother,Mother,10,7,0,false,true,true,,Advanced Set
+neoLeonidas,Neo-Leonidas,10,10,0,false,false,true,,Base Set
+nineTails,Nine-Tails,9,7,0,false,false,true,,Base Set
+pan,Pan,12,4,0,false,true,true,,Advanced Set
+pyro,Pyro,9,10,0,false,false,true,,Base Set
+queenOfHearts,Queen of Hearts,8,4,1,false,false,true,,Base Set
+rapunzel,Rapunzel,10,7,0,false,true,true,,Advanced Set
+sandWyrm,Sand Wyrm,11,1,0,false,false,true,,Base Set
+sensei,Sensei,9,8,0,false,false,true,,Base Set
+sentinel,Sentinel,13,2,0,false,false,true,,Base Set
+shriek,Shriek,7,4,0,false,true,true,,Advanced Set
+silverShade,Silver Shade,9,6,0,false,false,true,,Base Set
+skinwalker,Skinwalker,10,6,0,false,true,true,,Advanced Set
+sobek,Sobek,10,3,0,false,false,true,,Base Set
+steelforce,Steelforce,6,7,0,false,false,true,,Base Set
+sunYa,Sun’ya,10,6,0,false,false,true,,Base Set
+tasheera,Tasheera,8,6,0,false,true,true,,Advanced Set
+thatWhichFollows,That Which Follows,7,2,0,false,true,true,,Advanced Set
+theCount,The Count,10,4,0,true,true,true,,Advanced Set
+theEnforcers,The Enforcers,7,7,0,false,false,true,,Base Set
+theGoat,The GOAT,7,7,0,false,true,true,,Advanced Set
+theGreatAbomination,The Great Abomination,16,3,0,false,false,true,,Base Set
+theMartian,The Martian,8,8,0,true,true,true,,Advanced Set
+theOldKing,The Old King,14,3,0,false,true,true,,Advanced Set
+theThreeMusketeers,The Three Musketeers,8,6,0,false,false,true,,Base Set
+tinyTerror,Tiny Terror,9,9,0,false,true,true,,Advanced Set
+twilight,Twilith,9,5,0,false,true,true,,Advanced Set
+uglyDuckling,Ugly Duckling,10,2,0,false,false,true,,Base Set
+valeria,Valeria,6,4,0,false,true,true,,Advanced Set
+waterDancer,Water Dancer,5,5,1,true,true,true,,Advanced Set
+wendigo,Wendigo,10,5,0,false,false,true,,Base Set
+windDancer,Wind Dancer,6,7,0,false,false,true,,Base Set
+winterWraith,Winter Wraith,9,1,1,false,false,true,,Base Set
+alice,Alice,6,6,0,false,true,false,,Advanced Set
+drUndo,Dr. Undo,12,7,0,false,true,false,,Advanced Set
+glitch,Glitch,5,10,0,true,true,false,,Advanced Set
+madHatter,Mad Hatter,9,8,0,false,true,false,,Advanced Set
+masamune,Masamune,10,7,0,false,true,false,,Advanced Set
+ronnieAndSlyde,Ronnie & Slyde,10,7,0,false,true,false,,Advanced Set
+tesla,Tesla,8,4,0,true,true,false,,Advanced Set
+theFallen,The Fallen,13,3,0,false,true,false,,Advanced Set
+warGolem,War Golem,10,5,0,false,false,false,,Base Set

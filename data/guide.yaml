@@ -1,0 +1,125 @@
+# Guide texts, keyed by step id. Rules are paraphrased; card effects are never described.
+# Placeholders: {enemy} {speed} {tie_starter} {life} {dice_word} {actions} {face} {left} {total} {upgrades}
+steps:
+  setup:
+    actor: all
+    short: "Deal 4 Upgrade cards to each player, resolve Start of Game abilities, then start."
+    lines:
+      - "Shuffle the physical Upgrade deck and deal 4 Upgrade cards to each player. Keep your hands secret: you may discuss strategy, but not your cards."
+      - "Place your drafted Titans face up in front of you as your benches."
+      - "Resolve Start of Game abilities on your Titans."
+    confirms: ["Confirm: Upgrade cards dealt", "Confirm: Titans placed"]
+    why: "The app plays the enemy. You handle your own Titans, tokens, and cards on the table."
+    primary: [["Start game", "begin_game", {}]]
+    refs: [["Co-op: Game Setup", "design/final-titan-coop-rules.md"]]
+  fight_start_champion:
+    actor: players
+    short: "{enemy} is the enemy Champion. Send a Challenger, play Upgrades, then pick who starts."
+    lines:
+      - "{enemy} is the enemy Champion. Decide together which player sends a Titan from their bench as Challenger."
+      - "All players may play Upgrade cards face down for that Titan, then reveal them together."
+      - "Resolve When Revealed effects, then Start of Fight abilities: the starting side first. Enemy Upgrades on the right count for the enemy."
+      - "Enemy Speed is {speed}. Higher Speed starts; on a tie, your Challenger starts."
+    confirms: ["Confirm: Challenger sent", "Confirm: Upgrades revealed", "Confirm: effects resolved"]
+    why: "When the enemy is Champion, the players do not choose SKIP or FIGHT. They pick one Titan from any bench."
+    primary: [["Enemy starts", "set_starter", {side: enemy}], ["We start", "set_starter", {side: players}]]
+    refs: [["Co-op: Phase 1", "design/final-titan-coop-rules.md"]]
+  fight_start_challenger:
+    actor: players
+    short: "{enemy} challenges your Champion. Play Upgrades, then pick who starts."
+    lines:
+      - "{enemy} enters as enemy Challenger against your Champion."
+      - "All players may play Upgrade cards face down for your Champion, then reveal them together."
+      - "Resolve When Revealed effects, then Start of Fight abilities: the starting side first. Enemy Upgrades on the right count for the enemy."
+      - "Enemy Speed is {speed}. Higher Speed starts; on a tie, the enemy Challenger starts."
+    confirms: ["Confirm: ready to fight", "Confirm: Upgrades revealed", "Confirm: effects resolved"]
+    why: "Your Champion stays in the arena with its current Life. The next enemy in the queue challenges it."
+    primary: [["Enemy starts", "set_starter", {side: enemy}], ["We start", "set_starter", {side: players}]]
+    refs: [["Co-op: Phase 1", "design/final-titan-coop-rules.md"]]
+  enemy_turn_start:
+    actor: enemy
+    short: ""
+    lines:
+      - "The enemy's turn. Resolve any start-of-turn abilities on {enemy} and the enemy Upgrades."
+      - "{tick_line}"
+    why: "Poison and Fire damage ignore Armor, Dodge, and Minion. Fire then grows by one token."
+    primary: [["Start enemy turn", "start_turn", {}]]
+    refs: [["Combat", "design/rules.md"]]
+  enemy_turn:
+    actor: enemy
+    short: ""
+    lines:
+      - "Any player: roll one die for the enemy for each of its Actions ({actions} this turn). Look each result up on {enemy}'s Attack Chart and resolve it against your Titan."
+      - "{dice_line}"
+      - "Rolled Charge? Flip the Charge token with the Charge switch below the enemy card and take another Action. If it was already flipped, resolve the Ultimate, then turn it back to gray."
+      - "If a card makes the enemy decide, choose what is best for the enemy."
+    why: "The app never rolls dice and does not need the result. You only enter what it has to track: Life, tokens, and Charge."
+    primary: [["End enemy turn", "end_turn", {}]]
+    refs: [["Co-op: Enemy-Team Clarifications", "design/final-titan-coop-rules.md"]]
+  players_turn:
+    actor: players
+    short: ""
+    lines:
+      - "Your turn: play it on the table as usual."
+      - "Enter everything that affects the enemy with the controls below: damage, healing, tokens, or a fight end."
+    why: "Damage you enter is reduced by the enemy's Armor, then Dodge and Minion apply automatically. Add your own Power tokens as bonus."
+    primary: [["End our turn", "end_turn", {}]]
+  cleanup_enemy_defeated:
+    actor: all
+    short: "{enemy} is defeated. The winning player draws 1 Upgrade."
+    lines:
+      - "{enemy} is defeated!"
+      - "**Reward:** the player whose Titan won draws 1 Upgrade card. {legendary_line}"
+      - "**Your Titan** stays as Champion with its current Life."
+      - "**Clean up:** remove its Fire tokens, turn its Charge gray, discard the played Upgrades."
+      - "{next_line}"
+    primary: [["Continue", "advance_fight", {}]]
+    refs: [["Fight Clean-up", "design/rules.md"]]
+  cleanup_player_defeated:
+    actor: all
+    short: "Your Titan is defeated. {left} of {total} Titans left."
+    lines:
+      - "Your Titan is defeated."
+      - "**Discard** it with its tokens and played Upgrades. **{left} of {total}** Titans left."
+      - "**{enemy}** stays as enemy Champion with its current Life. Its Fire tokens are removed and its Charge turns gray."
+      - "{next_line}"
+    primary: [["Continue", "advance_fight", {}]]
+    refs: [["Fight Clean-up", "design/rules.md"]]
+  cleanup_both_defeated:
+    actor: all
+    short: "Both Titans are defeated. Nobody gets a reward."
+    lines:
+      - "Both Titans are defeated!"
+      - "**Discard** your Titan and the played Upgrades. Nobody draws a reward."
+      - "**{left} of {total}** Titans left."
+      - "{next_line}"
+    primary: [["Continue", "advance_fight", {}]]
+    refs: [["Simultaneous Defeat", "design/rules.md"]]
+  cleanup_enemy_returned:
+    actor: all
+    short: "{enemy} returned to its bench. You win the fight."
+    lines:
+      - "{enemy} returned to its bench!"
+      - "It heals to full Life. **Reward:** the player whose Titan stayed draws 1 Upgrade card."
+      - "**Next:** {enemy} fights again. No enemy Upgrade is revealed."
+    primary: [["Continue", "advance_fight", {}]]
+    refs: [["Returning to the Bench", "design/rules.md"]]
+  cleanup_player_returned:
+    actor: all
+    short: "Your Titan returned to its bench. The enemy wins the fight."
+    lines:
+      - "Your Titan returned to its bench."
+      - "It heals to full Life. **{enemy}** wins and stays as enemy Champion."
+      - "{next_line}"
+    primary: [["Continue", "advance_fight", {}]]
+    refs: [["Returning to the Bench", "design/rules.md"]]
+  victory:
+    actor: all
+    short: "Victory!"
+    lines:
+      - "Every enemy Titan is defeated. You win together!"
+  defeat:
+    actor: all
+    short: "Defeat."
+    lines:
+      - "All your Titans are defeated. The enemy wins this time."
