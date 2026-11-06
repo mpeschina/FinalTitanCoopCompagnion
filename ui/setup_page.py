@@ -33,10 +33,14 @@ def render() -> None:
         options = list(labels)
         # Seeded from the setup instead of passing defaults, so a language switch can re-assert them (session.set_lang).
         ss.setdefault("setup_preset", ss.setup.preset if ss.setup.preset in options else "")
-        ss.setdefault("setup_difficulty", ss.setup.difficulty)
+        ss.setdefault("setup_difficulty", ss.get("_setup_difficulty", ss.setup.difficulty))
         preset = st.selectbox(tr("setup.preset"), options, format_func=labels.get, key="setup_preset") or None
-        difficulty = st.select_slider(tr("setup.difficulty"), DIFFICULTIES, disabled=preset is not None,
-                                      format_func=lambda v: tr(f"opt.{v}"), key="setup_difficulty")
+        if preset is None:
+            difficulty = st.select_slider(tr("setup.difficulty"), DIFFICULTIES, format_func=lambda v: tr(f"opt.{v}"),
+                                          key="setup_difficulty")
+        else:  # the preset fixes the enemy decks, so the slider would carry no information: it is not shown
+            difficulty = ss.setup_difficulty
+        ss._setup_difficulty = difficulty  # keeps the choice across the runs in which the slider is not rendered
     with right:
         all_exp = cat.expansions()
         default_expansions = [name for name in ("Base Set", "Advanced Set") if name in all_exp]

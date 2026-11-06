@@ -102,6 +102,23 @@ def test_setup_guidance_survives_navigation_to_draft_and_back():
     assert next(item for item in at.selectbox if item.label == "Guidance level").value == "Beginner"
 
 
+def test_setup_hides_the_difficulty_slider_while_a_preset_is_chosen_and_keeps_the_choice():
+    at = run_page("setup_page")
+    slider = lambda: next((item for item in at.select_slider if item.label == "Difficulty"), None)  # noqa: E731
+    assert slider() is not None
+    slider().set_value("Hard").run()
+    assert not at.exception, at.exception
+    next(item for item in at.selectbox if item.label == "Challenge preset").select("first_steps").run()
+    assert not at.exception, at.exception
+    assert slider() is None  # the preset fixes the enemy decks: no slider
+    assert any("preset fixes" in c.value for c in at.caption)
+    at.run()  # a second run: the hidden widget's state is gone, the kept choice must survive
+    assert slider() is None
+    next(item for item in at.selectbox if item.label == "Challenge preset").select("").run()
+    assert not at.exception, at.exception
+    assert slider() is not None and slider().value == "Hard"
+
+
 def test_setup_defaults_to_expert_with_hint_bubble_until_beginner_is_picked():
     at = run_page("setup_page")
     assert not at.exception, at.exception
