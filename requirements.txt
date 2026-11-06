@@ -1,4 +1,8 @@
-streamlit>=1.60
+# The theme's Streamlit selectors are tested with 1.60 (see presentation/assets/comic.css).
+# Newer releases (checked with 1.67) change widget markup (multiselect tag colours) and AppTest query_params.
+streamlit>=1.60,<1.61
+# Streamlit 1.60 allows Starlette 1.x, but its media and static routes answer 500 with Starlette 1.10.
+starlette<1.0
 pillow
 pyyaml
 pytest

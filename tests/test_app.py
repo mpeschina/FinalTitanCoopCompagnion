@@ -374,7 +374,7 @@ def test_language_defaults_to_english_and_flags_switch_setup_to_german():
     _click(at, "setup_langbtn_de")
     assert at.session_state["lang"] == "de"
     assert at.title[0].value == "Final Titan Koop-Begleiter"
-    assert at.query_params["lang"] == ["de"]  # AppTest parses the URL, so values are lists
+    assert at.query_params["lang"] in ("de", ["de"])  # AppTest returns a list on 1.60, a string on 1.61+
     assert any(b.label == "Weiter zum Draft" for b in at.button)
 
 

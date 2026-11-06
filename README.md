@@ -21,7 +21,7 @@ The app never reads or applies card text. Players read the card images and enter
 ## Requirements
 
 - Python 3.10+
-- The packages in [requirements.txt](requirements.txt): `streamlit>=1.60`, `pillow`, `pyyaml`, `pytest`
+- The packages in [requirements.txt](requirements.txt): `streamlit` 1.60 with `starlette<1.0`, `pillow`, `pyyaml`, `pytest`
 
 ## Installation
 
