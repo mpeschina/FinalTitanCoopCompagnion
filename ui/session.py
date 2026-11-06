@@ -185,6 +185,12 @@ def start_game() -> None:
     reset_fx()
 
 
+def rematch() -> None:
+    """Rematch after a defeat: the same setup, draft and enemy decks (the seed is kept), played from the start."""
+    start_game()
+    go("arena")
+
+
 def new_game() -> None:
     """Abandons the current game and opens the Setup screen."""
     ss = st.session_state

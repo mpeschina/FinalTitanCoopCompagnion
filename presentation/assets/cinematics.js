@@ -216,7 +216,7 @@ HANDLERS.victory = async (c) => {
 HANDLERS.defeat = async (c) => {
   if (!cineOn(c)) return;
   const cn = cine('ink', '<div class="stack"><div class="title" style="color:#E63946;--shadow:#000">' + esc(tx('game_over', 'GAME OVER')) + '</div><div class="panel">' + summaryHtml(c.params)
-    + '</div><div class="sub">' + esc(tx('try_again', 'Try again? — New game in the command pad.')) + '</div></div>');
+    + '</div><div class="sub">' + esc(tx('try_again', 'Rematch? — Press Rematch in the command pad.')) + '</div></div>');
   sfx('sad');
   anim(cn, [{ clipPath: 'circle(0% at 50% 45%)' }, { clipPath: 'circle(150% at 50% 45%)' }], { duration: 1200, easing: 'ease-in' });
   anim(cn.querySelector('.title'), [{ transform: 'translateY(-40px)', opacity: 0 }, { transform: 'translateY(0) scaleY(1.08)', opacity: 1, offset: 0.7 }, { transform: 'none', opacity: 1 }],

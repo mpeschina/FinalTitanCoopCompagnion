@@ -4,6 +4,8 @@ from unittest.mock import patch
 import pytest
 from streamlit.testing.v1 import AppTest
 
+from finaltitan.events import act
+
 ROOT = str(Path(__file__).resolve().parent.parent)
 
 
@@ -299,6 +301,39 @@ def test_fight_menu_has_no_setup_or_draft_and_new_game_abandons_the_game():
     _click(at, "menu_new")
     assert at.session_state["stage"] == "setup"
     assert at.session_state["events"] == []
+
+
+def _lost_game(at):
+    """One player, three Titans: three lost fights end the game in defeat."""
+    prepared(at)
+    fight = [act("set_starter", side="players"), act("fight_end", reason="player_defeated")]
+    at.session_state["events"] = [act("begin_game"), *fight, act("advance_fight"), *fight, act("advance_fight"), *fight]
+
+
+def test_rematch_after_a_defeat_replays_the_same_matchup_from_the_start():
+    at = run_page("arena_page", _lost_game)
+    assert not at.exception, at.exception
+    before = at.session_state["setup"]
+    kept = (before.players, before.difficulty, before.seed, list(before.player_titans), list(before.enemy_titans), list(before.enemy_upgrades))
+    assert any(b.key == "new_after" and b.label == "Rematch" for b in at.button)
+    assert any("same order" in c.value for c in at.caption)
+    _click(at, "new_after")
+    after = at.session_state["setup"]
+    assert at.session_state["stage"] == "play" and at.session_state["events"] == []
+    assert (after.players, after.difficulty, after.seed, after.player_titans, after.enemy_titans, after.enemy_upgrades) == kept
+    assert any(b.key == "primary_setup_0" for b in at.button)  # at the start of the replay, not on Setup
+
+
+def test_new_game_after_a_victory_still_opens_setup():
+    def won(at):
+        prepared(at)
+        at.session_state["setup"].enemy_titans = at.session_state["setup"].enemy_titans[:1]
+        at.session_state["events"] = [act("begin_game"), act("set_starter", side="players"), act("fight_end", reason="enemy_defeated")]
+    at = run_page("arena_page", won)
+    assert not at.exception, at.exception
+    assert any(b.key == "new_after" and b.label == "New game" for b in at.button)
+    _click(at, "new_after")
+    assert at.session_state["stage"] == "setup"
 
 
 def test_catalog_editor_is_locked_outside_debug_mode():

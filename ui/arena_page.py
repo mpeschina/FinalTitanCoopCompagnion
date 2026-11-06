@@ -247,8 +247,11 @@ def _guide_panel(state: GameState, g: Guidance, cat) -> None:
 def _controls(state: GameState, cat) -> None:
     ss, tr = st.session_state, session.translator()
     if state.phase in ("victory", "defeat"):
-        st.button(tr("pad.try_again") if state.phase == "defeat" else tr("pad.new_game"), on_click=session.new_game, key="new_after",
-                  type="primary", width="stretch")
+        if state.phase == "defeat":  # the exact same matchup again; New game stays in the menu
+            st.button(tr("pad.rematch"), on_click=session.rematch, key="new_after", type="primary", width="stretch")
+            st.caption(tr("pad.rematch_note"))
+        else:
+            st.button(tr("pad.new_game"), on_click=session.new_game, key="new_after", type="primary", width="stretch")
         return
     t = state.arena
     if t is None or not state.in_fight():
